@@ -42,4 +42,18 @@ const getSingleProjects = async (req, res) => {
     }
 };
 
-module.exports = { getProjects, postProjects, getSingleProjects }
+const deleteHandler = async (req, res) => {
+    try {
+        const id = req.params.id;
+        await Projects.findByIdAndDelete(id);
+        res.code(200).send(
+            {
+                status: 'ok'
+            },
+        );
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+module.exports = { getProjects, postProjects, getSingleProjects, deleteHandler }

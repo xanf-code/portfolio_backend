@@ -1,4 +1,4 @@
-const { getEducation, postEducation } = require('../controllers/education_controller');
+const { getEducation, postEducation, deleteHandler } = require('../controllers/education_controller');
 
 // Options for get all education
 const getEducationOpts = {
@@ -38,13 +38,32 @@ const postEducationOpts = {
     handler: postEducation,
 }
 
+// Options for delete skills
+const deleteEducation = {
+    schema: {
+        response: {
+            200: {
+                type: 'object',
+                properties: {
+                    status: { type: 'string' },
+                },
+            }
+        }
+    },
+    handler: deleteHandler,
+}
+
+
 function educationRoutes(fastify, options, done) {
 
-    // GET ALL PROJECTS
+    // GET ALL EDUCATION
     fastify.get('/education', getEducationOpts);
 
-    // ADD PROJECTS
+    // ADD EDUCATION
     fastify.post('/education', postEducationOpts);
+
+    // DELETE EDUCATION
+    fastify.delete('/education/:id', deleteEducation);
 
     done();
 };

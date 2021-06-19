@@ -1,4 +1,4 @@
-const { getSkills, postSkills } = require('../controllers/skills_controller');
+const { getSkills, postSkills, deleteHandler } = require('../controllers/skills_controller');
 
 // Options for get all skills
 const getSkillsOpts = {
@@ -34,13 +34,31 @@ const postSkillsOpts = {
     handler: postSkills,
 }
 
+// Options for delete skills
+const deleteSkills = {
+    schema: {
+        response: {
+            200: {
+                type: 'object',
+                properties: {
+                    status: { type: 'string' },
+                },
+            }
+        }
+    },
+    handler: deleteHandler,
+}
+
 function SkillsRoutes(fastify, options, done) {
 
-    // GET ALL PROJECTS
+    // GET ALL SKILLS
     fastify.get('/skills', getSkillsOpts);
 
-    // ADD PROJECTS
+    // ADD SKILLS
     fastify.post('/skills', postSkillsOpts);
+
+    // DELETE SKILLS
+    fastify.delete('/skills/:id', deleteSkills);
 
     done();
 };

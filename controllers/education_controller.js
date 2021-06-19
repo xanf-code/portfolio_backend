@@ -31,4 +31,18 @@ const postEducation = async (req, res) => {
     }
 };
 
-module.exports = { postEducation, getEducation }
+const deleteHandler = async (req, res) => {
+    try {
+        const id = req.params.id;
+        await Education.findByIdAndDelete(id);
+        res.code(200).send(
+            {
+                status: 'ok'
+            },
+        );
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+module.exports = { postEducation, getEducation, deleteHandler }

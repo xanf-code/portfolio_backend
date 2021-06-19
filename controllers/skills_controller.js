@@ -27,4 +27,18 @@ const postSkills = async (req, res) => {
     }
 };
 
-module.exports = { postSkills, getSkills }
+const deleteHandler = async (req, res) => {
+    try {
+        const id = req.params.id;
+        await Skills.findByIdAndDelete(id);
+        res.code(200).send(
+            {
+                status: 'ok'
+            },
+        );
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+module.exports = { postSkills, getSkills, deleteHandler }

@@ -1,4 +1,4 @@
-const { getProjects, postProjects, getSingleProjects } = require('../controllers/projects_controller');
+const { getProjects, postProjects, getSingleProjects, deleteHandler } = require('../controllers/projects_controller');
 
 // Options for get all projects
 const getProjectsOpts = {
@@ -61,6 +61,21 @@ const postProjectsOpts = {
     handler: postProjects,
 }
 
+// Options for delete skills
+const deleteProject = {
+    schema: {
+        response: {
+            200: {
+                type: 'object',
+                properties: {
+                    status: { type: 'string' },
+                },
+            }
+        }
+    },
+    handler: deleteHandler,
+}
+
 function projectsRoutes(fastify, options, done) {
 
     // GET ALL PROJECTS
@@ -71,6 +86,9 @@ function projectsRoutes(fastify, options, done) {
 
     // ADD PROJECTS
     fastify.post('/projects', postProjectsOpts);
+
+    // DELETE PROJECT
+    fastify.delete('/projects/:id', deleteProject);
 
     done();
 };
