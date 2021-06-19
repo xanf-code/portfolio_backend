@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 
 fastify.register(require('./routes/projects'))
 fastify.register(require('./routes/education'))
+fastify.register(require('./routes/skills'))
 
 const PORT = process.env.PORT || 5000;
 

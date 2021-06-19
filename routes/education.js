@@ -1,6 +1,6 @@
 const { getEducation, postEducation } = require('../controllers/education_controller');
 
-// Options for get all projects
+// Options for get all education
 const getEducationOpts = {
     schema: {
         response: {
@@ -23,7 +23,7 @@ const getEducationOpts = {
     handler: getEducation,
 }
 
-// Options for add projects
+// Options for add education
 const postEducationOpts = {
     schema: {
         response: {
