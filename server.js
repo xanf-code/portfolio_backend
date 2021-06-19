@@ -9,23 +9,20 @@ const PORT = process.env.PORT || 5000;
 require('dotenv').config();
 let mongoURL = process.env.MongoDB_URL;
 
-//Mongo Connection
-mongoose.connect(mongoURL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-});
-
-const connection = mongoose.connection;
-connection.once("open", () => {
-    console.log("MpongoDB is connected");
-});
-
 const start = async () => {
     try {
         await fastify.listen(PORT);
-
+        //Mongo Connection
+        mongoose.connect(mongoURL, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            useCreateIndex: true,
+            useFindAndModify: false,
+        });
+        const connection = mongoose.connection;
+        connection.once("open", () => {
+            console.log("MpongoDB is connected");
+        });
     } catch (error) {
         fastify.log.error(error);
         process.exit(1);
