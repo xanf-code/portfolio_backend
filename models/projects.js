@@ -9,9 +9,9 @@ const Projects = Schema({
     projectDescription: {
         type: String,
     },
-    projectImage: {
-        type: String,
-    },
+    projectImage: [
+        String,
+    ],
     projectLink: {
         type: String,
     },

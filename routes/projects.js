@@ -11,7 +11,7 @@ const getProjectsOpts = {
                     properties: {
                         projectName: { type: 'string' },
                         projectDescription: { type: 'string' },
-                        projectImage: { type: 'string' },
+                        projectImage: { type: 'array' },
                         projectLink: { type: 'string' },
                         projectSlug: { type: 'array' },
                         projectTags: { type: 'array' },
@@ -34,7 +34,7 @@ const getSingleProjectsOpts = {
                     properties: {
                         projectName: { type: 'string' },
                         projectDescription: { type: 'string' },
-                        projectImage: { type: 'string' },
+                        projectImage: { type: 'array' },
                         projectLink: { type: 'string' },
                         projectSlug: { type: 'array' },
                         projectTags: { type: 'array' },
