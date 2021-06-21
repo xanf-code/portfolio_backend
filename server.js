@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 fastify.register(require('./routes/projects'))
 fastify.register(require('./routes/education'))
 fastify.register(require('./routes/skills'))
-
+fastify.register(require('fastify-cors'))
 //DotEnv
 require('dotenv').config();
 let mongoURL = process.env.MongoDB_URL;
