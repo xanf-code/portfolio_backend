@@ -2,7 +2,7 @@ const Projects = require("../models/projects");
 
 const getProjects = async (req, res) => {
     try {
-        const result = await Projects.find({}, "-__v");
+        const result = await Projects.find({}, "-__v").sort({ index: 1 });
         res.code(200).send(
             result,
         );
@@ -12,6 +12,7 @@ const getProjects = async (req, res) => {
 };
 
 const postProjects = async (req, res) => {
+    // INDEX NOT WORKING
     try {
         const projects = Projects({
             projectName: req.body.projectName,

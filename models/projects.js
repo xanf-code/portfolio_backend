@@ -6,6 +6,9 @@ const Projects = Schema({
     projectName: {
         type: String,
     },
+    index : {
+        type : String,
+    },
     projectDescription: {
         type: String,
     },

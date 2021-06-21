@@ -10,6 +10,7 @@ const getProjectsOpts = {
                     type: 'object',
                     properties: {
                         projectName: { type: 'string' },
+                        index: { type: 'string' },
                         projectDescription: { type: 'string' },
                         projectImage: { type: 'array' },
                         projectLink: { type: 'string' },
@@ -33,6 +34,7 @@ const getSingleProjectsOpts = {
                     type: 'object',
                     properties: {
                         projectName: { type: 'string' },
+                        index: { type: 'string' },
                         projectDescription: { type: 'string' },
                         projectImage: { type: 'array' },
                         projectLink: { type: 'string' },
