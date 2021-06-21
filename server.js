@@ -5,15 +5,13 @@ fastify.register(require('./routes/projects'))
 fastify.register(require('./routes/education'))
 fastify.register(require('./routes/skills'))
 
-const PORT = process.env.PORT || 5000;
-
 //DotEnv
 require('dotenv').config();
 let mongoURL = process.env.MongoDB_URL;
 
 const start = async () => {
     try {
-        await fastify.listen(PORT);
+        await fastify.listen(process.env.PORT || 5000);
         //Mongo Connection
         mongoose.connect(mongoURL, {
             useNewUrlParser: true,
