@@ -4,7 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server",
+    "start": "webpack-dev-server --mode development --hot --open --port $PORT",
+    "build": "npm i -dev && webpack --mode production",
+    "heroku-postbuild": "npm build",
     "dev": "nodemon server"
   },
   "keywords": [],
