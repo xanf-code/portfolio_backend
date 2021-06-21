@@ -11,7 +11,7 @@ let mongoURL = process.env.MongoDB_URL;
 
 const start = async () => {
     try {
-        await fastify.listen(process.env.PORT || 5000);
+        await fastify.listen(process.env.PORT || 3001, '0.0.0.0',);
         //Mongo Connection
         mongoose.connect(mongoURL, {
             useNewUrlParser: true,
